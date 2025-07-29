@@ -1,0 +1,689 @@
+/* Home.css */
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3a0ca3;
+  --text-color: #000000;
+  --light-gray: #f5f7fa;
+  --border-color: #bababa;
+  --box-shadow: 0 6px 9px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  --hover-sh: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] {
+  --primary-color: #8ab4f8;
+  --secondary-color: #4c8bf5;
+  --text-color: #c1c1c1;
+  --light-gray: #12121c;
+  --border-color: #444;
+  --box-shadow: 0 6px 9px rgba(167, 137, 177, 0.3); 
+  --transition: all 0.3s ease;
+  --success-color: #22c55e;
+  --danger-color: #ef4444;
+  --hover-sh: 0 12px 27px rgba(243, 208, 255, 0.45);
+}
+
+/* Общие стили */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+body, .home-container {
+  background-color: var(--light-gray);
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--light-gray);
+  color: var(--text-color);
+  box-shadow: var(--box-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.app-title {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.header-controls {
+  position: relative;
+}
+
+.menu-container {
+  position: relative;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.menu-button:hover {
+  background-color: var(--light-gray);
+}
+
+.menu-dots {
+  font-size: 1.5rem;
+  line-height: 1;
+  transform: rotate(90deg);
+  color: var(--text-color);
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: var(--light-gray);
+  color: var(--text-color);
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  width: 220px;
+  z-index: 101;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--light-gray);
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.75rem;
+}
+
+.avatar-placeholder {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.user-name {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.1rem;
+}
+
+.menu-divider {
+  border: none;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--text-color);
+}
+
+.menu-item:hover {
+  background-color: var(--light-gray);
+}
+
+.menu-icon {
+  font-size: 1.1rem;
+  margin-right: 0.75rem;
+}
+
+.menu-item.logout {
+  color: #e63946;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: var(--light-gray);
+  color: var(--text-color);
+  box-shadow: var(--box-shadow);
+}
+
+.characters-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.character-card {
+  border-radius: 12px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--box-shadow);
+  background-color: var(--light-gray);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+  min-height: 180px;
+}
+
+.character-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-sh)
+}
+
+.character-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.character-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 1rem;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+  
+  .character-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+  
+  .character-card {
+    padding: 1rem;
+    min-height: 140px;
+  }
+  
+  .character-icon {
+    font-size: 2rem;
+  }
+  
+  .character-name {
+    font-size: 1rem;
+  }
+  input:checked + .slider:before {
+  transform: translateX(1px);
+  }
+}
+
+@media (max-width: 480px) {
+  .dropdown-menu {
+    width: 180px;
+  }
+  
+  .characters-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .character-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+  
+  .character-card {
+    min-height: 120px;
+  }
+}
+
+/* Стили для карточки аккаунта */
+.account-card-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1000;
+  padding-right: 5px;
+}
+
+.account-card {
+  width: 400px;
+  max-width: 100%;
+  margin: 0.5%;
+  border-radius: 10px;
+  background-color: var(--light-gray);
+  color: var(--text-color);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  animation: slideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.account-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.account-card-header h3 {
+  font-size: 1.25rem;
+  color: var(--text-color);
+}
+
+.close-button {
+  width: 20%;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+.close-button:hover {
+  color: var(--danger-color);
+}
+
+.account-card-body {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.account-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.account-avatar-placeholder {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.avatar-upload {
+  margin-top: 0.5rem;
+}
+
+.upload-button {
+  background-color: var(--primary-color);
+  color: rgb(0, 0, 0);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.upload-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.account-info {
+  margin-top: 1.5rem;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: center;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+}
+
+.info-row label {
+  font-weight: 500;
+  width: 150px;
+  color: var(--text-color);
+}
+
+.info-value {
+  flex: 1;
+  padding: 0.5rem;
+  color: var(--text-color);
+  border-radius: 4px;
+}
+
+.edit-input {
+  flex: 1;
+  padding: 0.5rem;
+  background-color: var(--light-gray);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.account-card-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.edit-button, .save-button, .cancel-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.edit-button {
+  background-color: var(--primary-color);
+  color: white;
+  flex: 1;
+}
+
+.edit-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.save-button {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.save-button:hover {
+  opacity: 0.9;
+}
+
+.cancel-button {
+  background-color: var(--light-gray);
+  color: var(--text-color);
+}
+
+.cancel-button:hover {
+  background-color: #e2e6eb;
+}
+
+/* Адаптивность для карточки аккаунта */
+@media (max-width: 500px) {
+  .account-card-overlay {
+    padding-right: 0;
+    justify-content: center;
+  }
+  
+  
+  .account-card {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 90vh;
+    margin: 20px;
+    border-radius: 8px;
+    animation: slideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+  
+  .info-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .info-row label {
+    width: 100%;
+    margin-bottom: 0.25rem;
+  }
+  
+  .info-value, .edit-input {
+    width: 100%;
+  }
+  
+}
+
+
+/* ===== Стили для Настроек ===== */
+.settings-section {
+  margin-bottom: 2rem;
+}
+
+.settings-section h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--light-gray);
+  color: var(--text-color);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.setting-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.setting-icon {
+  font-size: 1.5rem;
+}
+
+.setting-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.setting-description {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+/* Стили для переключателя */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: var(--transition);
+  border-radius: 34px;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: var(--transition);
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--secondary-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(19px);
+}
+
+[data-theme="dark"] .slider {
+  background-color: #555;
+}
+
+[data-theme="dark"] input:checked + .slider {
+  background-color: var(--primary-color);
+}
+
+/* Кнопка экспорта */
+.export-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.export-button:hover {
+  background-color: var(--secondary-color);
+}
+
+
+.character-card.add-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 2px dashed #aaa;
+}
+
+.character-card.add-card.expanded {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  width: 300px;
+  height: auto;
+  background-color: #f0f0f0;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.add-form input {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.add-form button {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  width: 100%;
+  font-size: 1rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

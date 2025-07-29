@@ -1,0 +1,260 @@
+/* AuthPage.css */
+.auth-page {
+  display: flex;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.auth-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: #ffffff;
+  max-width: 500px;
+}
+
+.auth-image {
+  flex: 1;
+  background: linear-gradient(135deg, #4361ee, #3a0ca3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.auth-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2b2d42;
+  text-align: center;
+}
+
+p {
+  color: #6c757d;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.google-btn {
+  background: #ffffff;
+  color: #2b2d42;
+  border: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-btn:hover {
+  background: #f8f9fa;
+  border-color: #dee2e6;
+}
+
+.apple-btn {
+  background: #000000;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.apple-btn:hover {
+  background: #212529;
+}
+
+.email-btn {
+  background: #4361ee;
+  color: white;
+}
+
+.email-btn:hover {
+  background: #3a0ca3;
+}
+
+.or {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin: 1.5rem 0;
+  color: #6c757d;
+}
+
+.or::before,
+.or::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background: #e9ecef;
+}
+
+.or::before {
+  left: 0;
+}
+
+.or::after {
+  right: 0;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 350px;
+}
+
+.auth-form h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #2b2d42;
+  text-align: center;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1rem;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #4361ee;
+}
+
+.auth-form button[type="submit"] {
+  background: #4361ee;
+  color: white;
+  margin-top: 1rem;
+}
+
+.auth-form button[type="submit"]:hover {
+  background: #3a0ca3;
+}
+
+.auth-form button[type="button"] {
+  background: none;
+  color: #4361ee;
+  margin-top: 1rem;
+  border: 1px solid #4361ee;
+}
+
+.auth-form button[type="button"]:hover {
+  background: #f8f9fa;
+}
+
+.avatar-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.avatar-upload label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.avatar-preview {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #f1f3f5;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-upload input[type="file"] {
+  display: none;
+}
+
+.avatar-upload .upload-btn {
+  background: #e9ecef;
+  color: #495057;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.avatar-upload .upload-btn:hover {
+  background: #dee2e6;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40px;
+  font-size: 16px;
+}
+
+
+
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .auth-page {
+    flex-direction: column;
+  }
+
+  .auth-image {
+    display: none;
+  }
+
+  .auth-box {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+}
+

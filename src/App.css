@@ -1,0 +1,64 @@
+body{
+background: linear-gradient(to right, #232526, #414345);
+}
+.div{
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 340px;
+  gap: 10px;
+  box-sizing: border-box;
+}
+.div2 {  
+  background: rgb(160, 160, 160);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;     
+  justify-content: flex-start; 
+  margin-left: 20px;           
+  padding: 10px;
+  width: 100%-20px;
+  border-radius: 10px;
+  box-sizing: border-box;      
+  gap: 10px;                   
+  text-align: left;            
+}
+
+.div4{
+  gap: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.div3{
+  background-color: blue;
+  width: 100%;
+  border-radius: 10px;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input, button{
+    padding: 5px;
+    border-radius: 15px;
+    width: 100%;
+    border: none;
+}
+p{
+  margin: 0px;
+}
+h3{
+  margin: 0px;
+}

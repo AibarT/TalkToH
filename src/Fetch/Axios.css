@@ -1,0 +1,27 @@
+body{
+background: linear-gradient(to right, #232526, #414345);
+}
+.div{
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 300px;
+
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    padding: 5px;
+    border-radius: 15px;
+}
