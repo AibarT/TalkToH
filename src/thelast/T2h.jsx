@@ -99,7 +99,7 @@ const T2h = () => {
         },
         {
           headers: {
-            "Authorization": "Bearer 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",
+            "Authorization": "Bearer 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",
             "HTTP-Referer": "http://localhost:3000",
             "X-Title": "History Chat"
           }
