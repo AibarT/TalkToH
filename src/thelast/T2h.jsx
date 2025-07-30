@@ -84,27 +84,27 @@ const T2h = () => {
 
     try {
       const response = await axios.post(
-        "https://openrouter.ai/api/v1/chat/completions",
-        {
-          model: "moonshotai/kimi-k2:free",
-          messages: [
-            {
-              role: "system",
-              content: `Ты ${character.name}, ты жил-живешь те времена что жил этот персонаж но также знаешь про настоящее, отвечай характром персонажа, так же ты знаешь языки на короторм говорил персонаж и можешь вставлять вразочки, например Да Винчи может вместо ДА иногда говорить OUI. Отвечай как реальный человек 2-3 предложениями, можешь и больше если надо.`
-            },
-            ...newMessages
-          ],
-          temperature: 0.7,
-          max_tokens: 300
-        },
-        {
-          headers: {
-            "Authorization": "Bearer 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",
-            "HTTP-Referer": "http://localhost:3000",
-            "X-Title": "History Chat"
-          }
-        }
-      );
+  "https://api.pawan.krd/v1/chat/completions",
+  {
+    model: "gpt-3.5-turbo",
+    messages: [
+      {
+        role: "system",
+        content: `Ты ${character.name}, ты жил его жизнь и знаешь что он знает, также ты в курсе нынешнего времени, также говори манерой и характером персонажа отвечай на том языке на котором задали но можешь подклбчить язык персонажа.`
+      },
+      ...newMessages
+    ],
+    temperature: 0.7,
+    max_tokens: 300
+  },
+  {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer pk-RsceezDwDacjXSEPrFAAoQADaxdxWxmEmQQgcWcavUkiROsX"
+    }
+  }
+);
+
 
       const reply = response.data.choices[0].message.content;
       startTypingAnimation(reply);
