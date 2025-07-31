@@ -1,5 +1,4 @@
-# Logs
-logs
+# Логи
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -7,18 +6,46 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Зависимости и сборка
+/node_modules
+/.pnp
+.pnp.js
+/dist
+/dist-ssr
+/build
+/.cache
+/.svelte-kit
+/out
 
-# Editor directories and files
+# Переменные окружения
+.env
+.env.*
+!.env.example
+
+# Настройки редактора
+.DS_Store
+.idea
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Системные файлы
+Thumbs.db
+ehthumbs.db
+[Ll]ibrary
+*.stackdump
+
+# Тестовые данные
+/coverage
+/.nyc_output
+
+# Дополнительно
+*.bak
+*.tmp
+*.pid
+*.seed
+*.pid.lock

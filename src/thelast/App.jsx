@@ -1,6 +1,6 @@
 // App.jsx
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import T2h from "./T2h";
 import AuthPage from "./AuthPage";
@@ -18,7 +18,7 @@ function App() {
         />
         <Route
           path="/chat/:characterId"
-          element={<ProtectedRoute><T2h /></ProtectedRoute>}
+          element={<ProtectedRoute><T2h/></ProtectedRoute>}
         />
       </Routes>
     </Router>

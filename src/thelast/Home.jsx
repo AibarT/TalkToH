@@ -39,8 +39,6 @@ const Home = () => {
   const [showAccountCard, setShowAccountCard] = useState(false);
   const [showSettingsCard, setShowSettingsCard] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  const [showAddCard, setShowAddCard] = useState(false); // NEW
-  const [newCharacter, setNewCharacter] = useState({ name: "", icon: "", color: "#ddd" });
   const [darkMode, setDarkMode] = useState(localStorage.getItem("darkMode") === "true");
   const [userData, setUserData] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
   const [formData, setFormData] = useState({
@@ -152,25 +150,6 @@ const Home = () => {
   localStorage.setItem("characters", JSON.stringify(characters));
   }, [characters]);
 
-
-  const handleAddCharacter = () => {
-  if (!newCharacter.name || !newCharacter.icon || !newCharacter.color) return;
-
-  const id = newCharacter.name.toLowerCase().replace(/\s+/g, "-");
-  const newChar = {
-    id,
-    name: newCharacter.name,
-    icon: newCharacter.icon,
-    color: newCharacter.color,
-    darkColor: "#333"
-  };
-
-  setCharacters(prev => [...prev, newChar]);
-  setNewCharacter({ name: "", icon: "", color: "#ddd" });
-  setShowAddCard(false); // <--- Закрытие окна после добавления
-};
-
-
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
@@ -234,38 +213,6 @@ const Home = () => {
               <div className="character-name">{char.name}</div>
             </div>
           ))}
-
-          {/* NEW: Кнопка добавления */}
-          <div 
-            className={`character-card add-card ${showAddCard ? "expanded" : ""}`} 
-            onClick={() => setShowAddCard(true)}
-            style={{ backgroundColor: "#e0e0e0", justifyContent: "center", alignItems: "center" }}
-          >
-            {!showAddCard ? (
-              <div className="plus-icon" style={{ fontSize: "3rem" }}>+</div>
-            ) : (
-              <div className="add-form">
-                <input 
-                  type="text" 
-                  placeholder="Имя персонажа" 
-                  value={newCharacter.name}
-                  onChange={e => setNewCharacter({ ...newCharacter, name: e.target.value })}
-                />
-                <input 
-                  type="text" 
-                  placeholder="Смайлик" 
-                  value={newCharacter.icon}
-                  onChange={e => setNewCharacter({ ...newCharacter, icon: e.target.value })}
-                />
-                <input 
-                  type="color" 
-                  value={newCharacter.color}
-                  onChange={e => setNewCharacter({ ...newCharacter, color: e.target.value })}
-                />
-                <button onClick={handleAddCharacter}>Добавить</button>
-              </div>
-            )}
-          </div>
         </div>
       </main>
 
